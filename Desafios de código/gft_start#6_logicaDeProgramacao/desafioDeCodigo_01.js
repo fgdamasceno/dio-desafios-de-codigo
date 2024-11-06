@@ -1,3 +1,7 @@
+const entrada = require("prompt-sync")({ sigint: true });
+// para que prompt possa ser executado.
+// todos os prompts foram substituidos por 'entrada'
+
 console.log("======================= MORTAL KOMBAT ======================\n");
 
 console.log(
@@ -23,15 +27,16 @@ const combatentes = [
   "Kronika",
 ];
 
-const escolhaA = prompt("\nDIGITE O NÚMERO DO PRIMEIRO LUTADOR: ");
+// com NODE.js, substitua 'prompt' por 'entrada'
+const escolhaA = entrada("\nDIGITE O NÚMERO DO PRIMEIRO LUTADOR: ");
 const lutadorA = combatentes[escolhaA - 1];
 console.log("Combatente 1: " + lutadorA);
 
-let escolhaB = prompt("DIGITE O NÚMERO DO SEGUNDO LUTADOR: ");
+let escolhaB = entrada("DIGITE O NÚMERO DO SEGUNDO LUTADOR: ");
 let lutadorB = combatentes[escolhaB - 1];
 while (escolhaB === escolhaA) {
   console.log("   Lutador já foi selecionado. Selecione outro!");
-  escolhaB = prompt("DIGITE O NÚMERO DO SEGUNDO LUTADOR: ");
+  escolhaB = entrada("DIGITE O NÚMERO DO SEGUNDO LUTADOR: ");
   lutadorB = combatentes[escolhaB - 1];
 }
 console.log("Combatente 2: " + lutadorB);
